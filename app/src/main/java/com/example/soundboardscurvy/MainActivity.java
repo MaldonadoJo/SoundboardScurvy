@@ -1,8 +1,14 @@
 package com.example.soundboardscurvy;
 
+import android.content.Context;
+import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.MediaController;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -20,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-
+    private MediaPlayer mediaPlayer;
+    private MediaController mediaController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if(mediaPlayer.getDuration() >= 0) {
+                    mediaPlayer.start();
+                    mediaPlayer.setLooping(!mediaPlayer.isLooping());
+                }
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -47,8 +56,51 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-    }
 
+
+
+        ImageButton btnDamn = (ImageButton) findViewById(R.id.btnDamn);
+        btnDamn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.damn);
+                mediaPlayer.start();
+            }
+
+        });
+
+        ImageButton btn32 = (ImageButton) findViewById(R.id.btnWaka);
+        btn32.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.wackawackawaaa);
+                mediaPlayer.start();
+            }
+
+        });
+        Button btnRehee = (Button) findViewById(R.id.btnRehee);
+        btnRehee.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.rehee);
+                mediaPlayer.start();
+            }
+
+        });
+        Button btnWater = (Button) findViewById(R.id.btnWater);
+        btnWater.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.water);
+                mediaPlayer.start();
+            }
+
+        });
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -62,4 +114,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }
