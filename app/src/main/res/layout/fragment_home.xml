@@ -7,7 +7,7 @@
     tools:context=".ui.home.HomeFragment">
 
     <Button
-        android:id="@+id/button36"
+        android:id="@+id/btnStop"
         android:layout_width="140dp"
         android:layout_height="100dp"
         android:layout_marginTop="36dp"

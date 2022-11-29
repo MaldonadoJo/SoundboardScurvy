@@ -85,8 +85,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.rehee);
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.reehee);
                 mediaPlayer.start();
+
             }
 
         });
@@ -97,6 +98,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.water);
                 mediaPlayer.start();
+            }
+
+        });
+        Button btnStop = (Button) findViewById(R.id.btnStop);
+        btnStop.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.reset();
             }
 
         });
