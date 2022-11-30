@@ -11,4 +11,8 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="pirate">Pirate</string>
+    <string name="stop_loop">Stop Loop</string>
+    <string name="loop">Loop</string>
+    <string name="add_to_loop">add to loop</string>
+    <string name="erase_from_loop">Erase From Loop</string>
 </resources>

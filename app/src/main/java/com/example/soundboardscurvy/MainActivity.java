@@ -34,17 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        mediaPlayer = null;
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mediaPlayer.getDuration() >= 0) {
-                    mediaPlayer.start();
-                    mediaPlayer.setLooping(!mediaPlayer.isLooping());
-                }
-            }
-        });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -64,38 +56,42 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                mediaPlayer.setLooping(false);
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.damn);
                 mediaPlayer.start();
             }
 
         });
 
-        ImageButton btn32 = (ImageButton) findViewById(R.id.btnWaka);
-        btn32.setOnClickListener(new View.OnClickListener() {
+        ImageButton btnWaka = (ImageButton) findViewById(R.id.btnWaka);
+        btnWaka.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                mediaPlayer.setLooping(false);
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.wackawackawaaa);
                 mediaPlayer.start();
             }
 
         });
-        Button btnRehee = (Button) findViewById(R.id.btnRehee);
+        ImageButton btnRehee = (ImageButton) findViewById(R.id.btnRehee);
         btnRehee.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                mediaPlayer.setLooping(false);
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.reehee);
                 mediaPlayer.start();
 
             }
 
         });
-        Button btnWater = (Button) findViewById(R.id.btnWater);
+        ImageButton btnWater = (ImageButton) findViewById(R.id.btnWater);
         btnWater.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                mediaPlayer.setLooping(false);
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.water);
                 mediaPlayer.start();
             }
@@ -106,7 +102,20 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                mediaPlayer.reset();
+                if(mediaPlayer != null) {
+                    mediaPlayer.release();
+                    mediaPlayer = null;
+                }
+            }
+
+        });
+        Button btnLoop = (Button) findViewById(R.id.btnLoop);
+        btnLoop.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start();
+                mediaPlayer.setLooping(true);
             }
 
         });

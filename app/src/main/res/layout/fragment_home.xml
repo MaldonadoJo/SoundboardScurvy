@@ -12,19 +12,10 @@
         android:layout_height="100dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="24dp"
-        android:text="Button"
+        android:backgroundTint="#D30F0F"
+        android:text="@string/erase_from_loop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button39" />
-
-    <Button
-        android:id="@+id/btnWater"
-        android:layout_width="140dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="24dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDamn" />
 
     <Button
         android:id="@+id/button39"
@@ -37,12 +28,13 @@
         app:layout_constraintTop_toBottomOf="@+id/btnWater" />
 
     <Button
-        android:id="@+id/button35"
+        android:id="@+id/btnLoop"
         android:layout_width="140dp"
         android:layout_height="100dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
-        android:text="Button"
+        android:backgroundTint="#2DD858"
+        android:text="@string/add_to_loop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button34" />
 
@@ -55,16 +47,6 @@
         android:text="Button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRehee" />
-
-    <Button
-        android:id="@+id/btnRehee"
-        android:layout_width="140dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnWaka" />
 
     <TextView
         android:id="@+id/text_pirate"
@@ -90,7 +72,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="28dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/win_20221115_14_44_52_pro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_pirate" />
@@ -101,9 +83,31 @@
         android:layout_height="100dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/win_20221116_14_40_04_pro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_pirate" />
+
+    <ImageButton
+        android:id="@+id/btnRehee"
+        android:layout_width="140dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/scooby_doo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnWaka" />
+
+    <ImageButton
+        android:id="@+id/btnWater"
+        android:layout_width="140dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/water"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDamn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
