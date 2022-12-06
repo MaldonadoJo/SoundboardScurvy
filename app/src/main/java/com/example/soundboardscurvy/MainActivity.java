@@ -1,7 +1,5 @@
 package com.example.soundboardscurvy;
 
-import android.content.Context;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +8,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.MediaController;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -26,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    private MediaPlayer mediaPlayer;
+    private boolean tornado = false, water = false, bum = false, waka = false, rehee = false, damn = false;
+    private MediaPlayer playWaka = null, playRehee = null,playWater = null,playBum = null,playTornado = null,playDamn = null;
     private MediaController mediaController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        mediaPlayer = null;
         setSupportActionBar(binding.appBarMain.toolbar);
 
         DrawerLayout drawer = binding.drawerLayout;
@@ -52,74 +49,126 @@ public class MainActivity extends AppCompatActivity {
 
 
         ImageButton btnDamn = (ImageButton) findViewById(R.id.btnDamn);
+        playDamn = MediaPlayer.create(getApplicationContext(), R.raw.damn);
         btnDamn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                mediaPlayer.setLooping(false);
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.damn);
-                mediaPlayer.start();
+
+                playDamn.start();
             }
 
         });
+        btnDamn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                playDamn.start();
+                damn = !damn;
+                playWater.setLooping(damn);
+                return true;
+            }
+        });
 
         ImageButton btnWaka = (ImageButton) findViewById(R.id.btnWaka);
+        playWaka = MediaPlayer.create(getApplicationContext(), R.raw.wackawackawaaa);
         btnWaka.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                mediaPlayer.setLooping(false);
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.wackawackawaaa);
-                mediaPlayer.start();
+
+                playWaka.start();
             }
 
         });
+        btnWaka.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                playWaka.start();
+                waka = !waka;
+                playWaka.setLooping(waka);
+                return true;
+            }
+        });
         ImageButton btnRehee = (ImageButton) findViewById(R.id.btnRehee);
+        playRehee = MediaPlayer.create(getApplicationContext(), R.raw.reehee);
         btnRehee.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                mediaPlayer.setLooping(false);
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.reehee);
-                mediaPlayer.start();
 
+                playRehee.start();
             }
 
         });
+        btnRehee.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                playRehee.start();
+                rehee = !rehee;
+                playRehee.setLooping(rehee);
+                return true;
+            }
+        });
         ImageButton btnWater = (ImageButton) findViewById(R.id.btnWater);
+        playWater = MediaPlayer.create(getApplicationContext(), R.raw.water);
         btnWater.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                mediaPlayer.setLooping(false);
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.water);
-                mediaPlayer.start();
-            }
 
+                playWater.start();
+            }
         });
-        Button btnStop = (Button) findViewById(R.id.btnStop);
-        btnStop.setOnClickListener(new View.OnClickListener() {
+        btnWater.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                playWater.start();
+                water = !water;
+                playWater.setLooping(water);
+                return true;
+            }
+        });
+
+        ImageButton btnBum = (ImageButton) findViewById(R.id.btnBum);
+        playBum = MediaPlayer.create(getApplicationContext(), R.raw.bum);
+        btnBum.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if(mediaPlayer != null) {
-                    mediaPlayer.release();
-                    mediaPlayer = null;
-                }
-            }
 
+                playBum.start();
+            }
         });
-        Button btnLoop = (Button) findViewById(R.id.btnLoop);
-        btnLoop.setOnClickListener(new View.OnClickListener() {
+        btnBum.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                playBum.start();
+                bum = !bum;
+                playBum.setLooping(bum);
+                return true;
+            }
+        });
+        ImageButton btnTornado = (ImageButton) findViewById(R.id.btnTornado);
+        playTornado = MediaPlayer.create(getApplicationContext(), R.raw.eltornado);
+        btnTornado.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                mediaPlayer.start();
-                mediaPlayer.setLooping(true);
+                playTornado.start();
             }
-
         });
+        btnTornado.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                playTornado.start();
+                tornado = !tornado;
+                playTornado.setLooping(tornado);
+                return true;
+            }
+        });
+
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

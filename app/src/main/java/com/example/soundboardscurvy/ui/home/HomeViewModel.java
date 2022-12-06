@@ -15,7 +15,7 @@ public class HomeViewModel extends ViewModel {
     private MediaPlayer mediaPlayer;
     public HomeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Pirate");
+        mText.setValue("Random");
 
     }
     public void testNoise(View view){
