@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    private boolean tornado = false, water = false, bum = false, waka = false, rehee = false, damn = false;
-    private MediaPlayer playWaka = null, playRehee = null,playWater = null,playBum = null,playTornado = null,playDamn = null;
+    private boolean tornado = false, water = false, bum = false, waka = false, rehee = false, ahhh = false, golly = false, soulja = false;
+    private MediaPlayer playWaka = null, playRehee = null,playWater = null,playBum = null,playTornado = null,playAhhh = null, playGolly = null, playSoulja = null;
     private MediaController mediaController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,23 +48,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        ImageButton btnDamn = (ImageButton) findViewById(R.id.btnDamn);
-        playDamn = MediaPlayer.create(getApplicationContext(), R.raw.damn);
-        btnDamn.setOnClickListener(new View.OnClickListener() {
+        ImageButton btnAhhh = (ImageButton) findViewById(R.id.btnAhhh);
+        playAhhh = MediaPlayer.create(getApplicationContext(), R.raw.ahhh);
+        btnAhhh.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
-                playDamn.start();
+                playAhhh.start();
             }
 
         });
-        btnDamn.setOnLongClickListener(new View.OnLongClickListener() {
+        btnAhhh.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                playDamn.start();
-                damn = !damn;
-                playWater.setLooping(damn);
+                playAhhh.start();
+                ahhh = !ahhh;
+                playAhhh.setLooping(ahhh);
                 return true;
             }
         });
@@ -166,7 +165,46 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        ImageButton btnGolly = (ImageButton) findViewById(R.id.btnGolly);
+        playGolly = MediaPlayer.create(getApplicationContext(), R.raw.golly);
+        btnGolly.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+
+                playGolly.start();
+            }
+
+        });
+        btnGolly.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                playGolly.start();
+                golly = !golly;
+                playGolly.setLooping(golly);
+                return true;
+            }
+        });
+        ImageButton btnSoulja = (ImageButton) findViewById(R.id.btnSoulja);
+        playSoulja = MediaPlayer.create(getApplicationContext(), R.raw.soulja);
+        btnSoulja.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                playSoulja.start();
+            }
+
+        });
+        btnSoulja.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                playSoulja.start();
+                soulja = !soulja;
+                playSoulja.setLooping(soulja);
+                return true;
+            }
+        });
     }
 
     @Override
